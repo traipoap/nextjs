@@ -3,7 +3,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npx serve'
+                sh 'npm run dev'
+            }
+            steps {
+                sh 'sleep 100'
             }
         }
     }
