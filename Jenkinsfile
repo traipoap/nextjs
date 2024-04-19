@@ -11,6 +11,11 @@ pipeline {
                 sh 'npm run dev'
             }
         }
+        stage('Run server') {
+            steps {
+                sh 'npx serve'
+            }
+        }
     }
 }
 
