@@ -30,8 +30,8 @@ spec:
           requests:
             cpu: 100m
             memory: 256Mi
-#      automountServiceAccountToken: false
-#      imagePullSecrets:
-#      - name: docker-registry
-#      serviceAccountName: container-registry
+      automountServiceAccountToken: false
+      imagePullSecrets:
+      - name: github-registry
+      serviceAccountName: container-registry
       restartPolicy: Always
