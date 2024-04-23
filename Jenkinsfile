@@ -1,21 +1,40 @@
 pipeline {
     agent any
     stages {
-        stage('Install') {
+//        stage('Login repo') {
+//            steps {
+//                script {
+//                    withCredentials([usernamePassword(credentialsId: 'docker-login-credentials', usernameVariable: 'USER_LOGIN', passwordVariable: 'TOKEN_LOGIN')]) {
+//                        sh "docker login ${DOCKER_REGISTRY_URL} -u ${USER_LOGIN} -p ${TOKEN_LOGIN}"
+//                    }
+//               }
+//            }
+//       }
+
+        stage('Build, Push, and Deploy') {
             steps {
-                sh "npm install"
+                sh 'docker-compose build && docker-compose push && docker-compose up -d --build'
             }
         }
-        stage('Build') {
+
+        stage('Countdown') {
             steps {
-                sh 'npm run build'
+                script {
+                for (int i = 60; i >= 0; i--) {
+                    echo "เวลาที่เหลือ: ${i} วินาที"
+                    sleep 1
+                }
+                echo "หมดเวลาแล้ว!"
+                }
             }
         }
-        stage('Run server') {
+
+        stage('Remove') {
             steps {
-                sh 'npm run dev'
+                script {
+                sh "docker-compose down --rmi all"
+                }
             }
         }
     }
 }
-

@@ -1,0 +1,14 @@
+services:
+  nextjs:
+    container_name: nextjs
+    image: localhost:5000/nextjs:latest
+    build:
+      context: .
+    expose:
+      - 3000
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
