@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: nextjs
-        image: localhost:5000/nextjs:latest
+        image: ghcr.io/traipoap/nextjs:latest
         ports:
         - containerPort: 3000
           name: http

@@ -1,15 +1,15 @@
 pipeline {
     agent any
     stages {
-//        stage('Login repo') {
-//            steps {
-//                script {
-//                    withCredentials([usernamePassword(credentialsId: 'docker-login-credentials', usernameVariable: 'USER_LOGIN', passwordVariable: 'TOKEN_LOGIN')]) {
-//                        sh "docker login ${DOCKER_REGISTRY_URL} -u ${USER_LOGIN} -p ${TOKEN_LOGIN}"
-//                    }
-//               }
-//            }
-//       }
+        stage('Login repo') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'docker-login-credentials', usernameVariable: 'USER_LOGIN', passwordVariable: 'TOKEN_LOGIN')]) {
+                        sh "docker login ${DOCKER_REGISTRY_URL} -u ${USER_LOGIN} -p ${TOKEN_LOGIN}"
+                    }
+               }
+            }
+       }
 
         stage('Build, Push, and Deploy') {
             steps {

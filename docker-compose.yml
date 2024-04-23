@@ -1,7 +1,7 @@
 services:
   nextjs:
     container_name: nextjs
-    image: localhost:5000/nextjs:latest
+    image: ghcr.io/traipoap/nextjs:latest
     build:
       context: .
     expose:
