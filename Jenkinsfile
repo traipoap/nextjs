@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    environment {
+        DOCKER_REGISTRY_URL = "ghcr.io"
+    }
+
     stages {
         stage('Login repo') {
             steps {
