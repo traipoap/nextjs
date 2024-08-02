@@ -54,7 +54,7 @@ export default function Topgroup() {
         </div>
       </div>
       <div className='footer'>
-        bitdoin.in.th
+        doin.in.th
       </div>
     </div>     
   )
